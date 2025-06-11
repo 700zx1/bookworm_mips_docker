@@ -1,0 +1,13 @@
+# sf3000(gb350) , modified from Miyoo Mini code block in tyrquake Makefile
+else ifeq ($(platform), sf3000)
+    TARGET := $(TARGET_NAME)_libretro.so
+    EXT    ?= so
+    fpic   := -fPIC
+    SHARED := -shared -Wl,--version-script=common/libretro-link.T  -Wl,--no-undefined
+    CFLAGS += -DDINGUX -O2 -mips32r2 -mabi=32 -fPIC -EL -mabicalls -fomit-frame-pointer -ffast-math -mhard-float
+    LDFLAGS += -shared -Wl,--no-undefined -mips32r2 -mabi=32 -EL
+    CC = mipsel-linux-gnu-gcc
+    CXX = mipsel-linux-gnu-g++
+    AR = mipsel-linux-gnu-ar
+    STRIP = mipsel-linux-gnu-strip
+    HAVE_NETWORKING=0
