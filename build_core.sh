@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
-CORE_NAME=${1:-tyrquake}
-CORE_REPO=${2:-https://github.com/libretro/tyrquake.git}
+# Use the exported variables from launch_podman_build_vice.sh
+CORE_NAME=${CORE_NAME}
+CORE_REPO=${CORE_REPO}
 
 echo "Cloning $CORE_NAME core..."
-git clone "$CORE_REPO" "$CORE_NAME"
+git clone "$CORE_REPO"
 cd "$CORE_NAME"
 
 # Copy your platform-specific Makefile into the repo
